@@ -33,18 +33,6 @@ function updateGridSize(rowSize, colSize){
     }
 }
 
-// function addCellEventListeners(){
-//     cells.forEach(cell => cell.addEventListener('mouseover', function(event){
-//         updateCellHoverState(event.target);
-//     }))
-// }
-
-
-// const cells = document.querySelectorAll('.cell');
-// cells.forEach(cell => cell.addEventListener('mouseover', function(event){
-//     updateCellHoverState(event.target);
-// }))
-
 function updateCellHoverState(cell){
     cell.classList.add('hovered');
 }
