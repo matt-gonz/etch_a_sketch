@@ -26,15 +26,24 @@ function updateGridSize(rowSize, colSize){
             const div = document.createElement('div');
             div.classList.add('cell');
             gridContainer.appendChild(div);
+            div.addEventListener('mouseover', function(event){
+                updateCellHoverState(event.target);
+            })
         }
     }
 }
 
+// function addCellEventListeners(){
+//     cells.forEach(cell => cell.addEventListener('mouseover', function(event){
+//         updateCellHoverState(event.target);
+//     }))
+// }
 
-const cells = document.querySelectorAll('.cell');
-cells.forEach(cell => cell.addEventListener('mouseover', function(event){
-    updateCellHoverState(event.target);
-}))
+
+// const cells = document.querySelectorAll('.cell');
+// cells.forEach(cell => cell.addEventListener('mouseover', function(event){
+//     updateCellHoverState(event.target);
+// }))
 
 function updateCellHoverState(cell){
     cell.classList.add('hovered');
