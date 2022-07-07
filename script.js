@@ -1,16 +1,35 @@
+let defaultColCount = 16;
+let defaultRowCount = 16;
+
 const gridContainer = document.getElementById('gridContainer');
+const gridSizeBtn = document.getElementById('gridSizeBtn');
 
-let colCount = 16;
-let rowCount = 16;
+gridSizeBtn.addEventListener('click', function(event){
+    removeCurrentGrid();
+    newRowSize = Number(prompt("Enter desired row size: "));
+    newColSize = Number(prompt("Enter desired column size: "));
+    updateGridSize(newRowSize, newColSize);
+})
 
-// Create grid of divs
-for (let i = 0; i < rowCount; i++){
-    for (let i = 0; i < colCount; i++){
-        const div = document.createElement('div');
-        div.classList.add('cell');
-        gridContainer.appendChild(div);
+function removeCurrentGrid(){
+    while (gridContainer.firstChild){
+        gridContainer.removeChild(gridContainer.firstChild);
     }
 }
+
+updateGridSize(defaultRowCount, defaultColCount);
+
+// Create grid of divs
+function updateGridSize(rowSize, colSize){
+    for (let i = 0; i < rowSize; i++){
+        for (let i = 0; i < colSize; i++){
+            const div = document.createElement('div');
+            div.classList.add('cell');
+            gridContainer.appendChild(div);
+        }
+    }
+}
+
 
 const cells = document.querySelectorAll('.cell');
 cells.forEach(cell => cell.addEventListener('mouseover', function(event){
