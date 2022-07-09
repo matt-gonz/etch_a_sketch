@@ -4,6 +4,8 @@ let defaultRowCount = 16;
 const gridContainer = document.getElementById('gridContainer');
 const gridSizeBtn = document.getElementById('gridSizeBtn');
 const clearGridBtn = document.getElementById('clearGridBtn');
+const sliderLabelGridSize = document.getElementById('sliderLabelGridSize');
+const slider = document.getElementById('mySlider');
 
 clearGridBtn.addEventListener('click', function(event){
     clearGrid();
@@ -47,4 +49,14 @@ function updateGridSize(rowSize, colSize){
 
 function updateCellHoverState(cell){
     cell.classList.add('hovered');
+}
+
+// Update slider val when dragged
+slider.oninput = function(){
+    refreshGrid(this.value, this.value);
+}
+
+function refreshGrid(newRowSize, newColSize){
+    removeCurrentGrid();
+    updateGridSize(newRowSize, newColSize);
 }
