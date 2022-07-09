@@ -11,24 +11,7 @@ clearGridBtn.addEventListener('click', function(event){
     clearGrid();
 })
 
-gridSizeBtn.addEventListener('click', function(event){
-    removeCurrentGrid();
-    let newRowSize = Number(prompt("Enter desired row size: "));
-    let newColSize = newRowSize;
-    updateGridSize(newRowSize, newColSize);
-})
-
-function clearGrid(){
-    let highlightedDivs = document.querySelectorAll('.hovered');
-    highlightedDivs.forEach(div => div.classList.remove('hovered'));
-}
-
-function removeCurrentGrid(){
-    while (gridContainer.firstChild){
-        gridContainer.removeChild(gridContainer.firstChild);
-    }
-}
-
+// Default grid size settings
 updateGridSize(defaultRowCount, defaultColCount);
 
 // Create grid of divs
@@ -53,10 +36,24 @@ function updateCellHoverState(cell){
 
 // Update slider val when dragged
 slider.oninput = function(){
-    refreshGrid(this.value, this.value);
+    let numGridRows = this.value;
+    let numGridCols = numGridRows;
+    refreshGrid(numGridRows, numGridCols);
+    sliderLabelGridSize.textContent = `${numGridRows}x${numGridCols}`;
 }
 
 function refreshGrid(newRowSize, newColSize){
     removeCurrentGrid();
     updateGridSize(newRowSize, newColSize);
+}
+
+function clearGrid(){
+    let highlightedDivs = document.querySelectorAll('.hovered');
+    highlightedDivs.forEach(div => div.classList.remove('hovered'));
+}
+
+function removeCurrentGrid(){
+    while (gridContainer.firstChild){
+        gridContainer.removeChild(gridContainer.firstChild);
+    }
 }

@@ -8,14 +8,35 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: beige;
+    margin-top: 45px;
+}
+
+.sketcher{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 114, 89);
+    border-radius: 10px;
+    width: 60%;
+    height: 60%;
+}
+
+h1{
+    color: rgb(255, 237, 71);
+    font-family: 'Sacramento', cursive;
+    font-size: 42px;
+    margin: 0;
+    padding: 20px;
 }
 
 #gridContainer{
     display: inline-grid;
     grid-template-columns: repeat(16, 2fr);
     grid-template-rows: repeat(16, 2fr);
-    width: 640px;
-    height: 640px;
+    width: 80%;
+    height: 650px;
     border: 3px solid black;
 }
 
@@ -25,5 +46,59 @@ body{
 }
 
 .hovered{
-    background-color: rgb(133, 132, 132);
+    background-color: rgb(161, 161, 161);
+    /* background-color: rgb(87, 87, 87); */
+}
+
+.sketcher-footer{
+    display: flex;
+    width: 95%;
+    height: 75px;
+    padding: 20px 40px;
+    gap: 20px;
+}
+
+.left-footer,
+.right-footer{
+    width: 75px;
+    background-color: white;
+    border-radius: 40px;
+}
+
+.center-footer{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    color:rgb(255, 242, 220);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.slider-container{
+    line-height: 0%;
+}
+
+.buttons-container{
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.btn{
+    background-color: rgb(255, 242, 220);
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 8px;
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    bottom: 0;
+    padding: 10px;
+    width: 100%;
 }

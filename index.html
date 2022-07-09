@@ -2,23 +2,39 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Etch-a-Sketch</title>
+        <title>Etch A Sketch</title>
         <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">    
         <script src="script.js" defer></script>
     </head>
 
     <body>
-        <h1 class="title">Etch-a-Sketch</h1>
-        <div class="container" id="gridContainer">
-
+        <div class="sketcher">
+            <h1 class="title">Etch A Sketch</h1>
+            <div class="container" id="gridContainer">
+            </div>
+            <div class="sketcher-footer">
+                <div class="left-footer"></div>
+                <div class="center-footer">
+                    <div class="slider-container">
+                        <p class="slider-label">Grid size: <span id="sliderLabelGridSize">
+                            16x16</span></p>
+                        <input class="slider" id="mySlider" type="range" min="1" 
+                            max="100" value="16">
+                    </div>
+                    <div class="buttons-container">Mode:
+                        <button class="btn color-mode-dark">Dark</button>
+                        <button class="btn color-mode-dark">Light</button>
+                        <button class="btn color-mode-dark">Color</button>
+                    </div>
+                    <button class="btn clear-grid-btn" id="clearGridBtn">Clear
+                    </button>
+                </div>
+                <div class="right-footer"></div>
+            </div>
         </div>
-        <button class="btn grid-size" id="gridSizeBtn">Grid Size</button>
-        <button class="btn clear-grid-btn" id="clearGridBtn">Clear</button>
-        <div class="slide-container">
-            <p class="slider-label">Grid size: <span id="sliderLabelGridSize">
-                16x16</span></p>
-            <input class="slider" id="mySlider" type="range" min="1" max="100" value="16">
-        </div>
-
+        <footer class="footer">Designed by Matthew Gonzalez</footer>
     </body>
 </html>
