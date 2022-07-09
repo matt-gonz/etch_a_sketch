@@ -1,5 +1,6 @@
 let defaultColCount = 16;
 let defaultRowCount = 16;
+let colorMode = 'Light';
 
 const gridContainer = document.getElementById('gridContainer');
 const gridSizeBtn = document.getElementById('gridSizeBtn');
@@ -31,7 +32,17 @@ function updateGridSize(rowSize, colSize){
 }
 
 function updateCellHoverState(cell){
-    cell.classList.add('hovered');
+    cell.classList.remove('hovered-light', 'hovered-dark', 'hovered-eraser');
+    if (colorMode === "Light"){
+        cell.classList.add('hovered-light');
+    }
+    else if (colorMode === "Dark"){
+        cell.classList.add('hovered-dark');
+    }
+    else{
+        cell.classList.add('hovered-eraser');
+    }
+    
 }
 
 // Update slider val when dragged
@@ -48,12 +59,22 @@ function refreshGrid(newRowSize, newColSize){
 }
 
 function clearGrid(){
-    let highlightedDivs = document.querySelectorAll('.hovered');
-    highlightedDivs.forEach(div => div.classList.remove('hovered'));
+    let highlightedDivs = document.querySelectorAll('.hovered-light, .hovered-dark, .hovered-eraser');
+    highlightedDivs.forEach(div => div.classList.remove('hovered-light', 'hovered-dark', 'hovered-eraser'));
 }
 
 function removeCurrentGrid(){
     while (gridContainer.firstChild){
         gridContainer.removeChild(gridContainer.firstChild);
     }
+}
+
+const colorModeBtns = document.querySelectorAll('.color-mode-btn');
+colorModeBtns.forEach(btn => btn.addEventListener('click', function(event){
+    let newColorMode = event.target.textContent;
+    changeColorMode(newColorMode);
+}));
+
+function changeColorMode(newColorMode){
+    colorMode = newColorMode;
 }
