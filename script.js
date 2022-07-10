@@ -71,10 +71,13 @@ function removeCurrentGrid(){
 
 const colorModeBtns = document.querySelectorAll('.color-mode-btn');
 colorModeBtns.forEach(btn => btn.addEventListener('click', function(event){
+    let colorModeBtn = event.target;
     let newColorMode = event.target.textContent;
-    changeColorMode(newColorMode);
+    changeColorMode(colorModeBtn, newColorMode);
 }));
 
-function changeColorMode(newColorMode){
+function changeColorMode(colorModeBtn, newColorMode){
+    colorModeBtns.forEach(btn => btn.classList.remove('selected'));
+    colorModeBtn.classList.add('selected');
     colorMode = newColorMode;
 }
