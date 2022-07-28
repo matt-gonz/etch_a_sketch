@@ -117,8 +117,8 @@ h1{
 .footer{
     display: flex;
     justify-content: center;
-    position: relative;
+    position: fixed;
     bottom: 0;
-    padding: 10px;
+    padding: 30px;
     width: 100%;
 }
